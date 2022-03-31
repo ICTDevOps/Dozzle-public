@@ -1,0 +1,16 @@
+version: "3"
+services:
+  dozzle:
+    image: amir20/dozzle:latest
+    #To build from source, comment previous line and uncomment below
+    #build: .
+    container_name: dozzle
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8892:8080
+    environment:
+      - UID=1000
+      - GID=1000
+      - TZ=Europe/Brussels
+    restart: unless-stopped
